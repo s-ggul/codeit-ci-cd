@@ -1,0 +1,36 @@
+name: CI with Codecov
+
+on:
+  push:
+    branches: ["main"] # main 브랜치로 push 시 실행
+  pull_request:
+    branches: ["main"] # main 브랜치에 PR 생성 시 실행
+
+jobs:
+  test-and-coverage:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18, 20]
+
+    steps:
+      - name: ⬇️ Checkout repository
+        uses: actions/checkout@v4
+
+      - name: ⎔ Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: 📦 Install dependencies
+        run: npm ci
+
+      - name: ▶️ Run tests with coverage
+        run: npm test -- --coverage # Jest로 커버리지 리포트 생성
+
+      - name: 📤 Upload coverage to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          flags: unittests
+          name: Codecov Report
