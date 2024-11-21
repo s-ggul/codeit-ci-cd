@@ -1,6 +1,9 @@
-name: Test and Build
+name: Build, Test and Get Coverage
 
 on:
+  push:
+    branches:
+      - main
   pull_request: # 새로운 PR이 생성될 때 실행
     branches:
       - main # 필요한 경우 특정 브랜치에만 동작하도록 설정
@@ -34,4 +37,9 @@ jobs:
         run: npm run build
 
       - name: Run tests
-        run: npm run test
+        run: npx jest --coverage
+
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
