@@ -1,5 +1,5 @@
 name: Build, Test and Get Coverage
-# 참고
+#
 # https://jestjs.io/docs/cli#--coverageboolean
 # https://docs.codecov.com/docs/quick-start#
 
