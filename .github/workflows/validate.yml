@@ -34,7 +34,7 @@ jobs:
         run: npm run build
 
       - name: Run tests
-        run: npm run test --collectCoverage --coverageDirectory=coverage
+        run: npx jest --collectCoverage --coverageDirectory=./coverage
 
       - name: Upload coverage results
         uses: actions/upload-artifact@v3
