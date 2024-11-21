@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+// https://github.com/codeit-bootcamp-frontend/FE-ADV-Practice-CICD/commit/e93a4cbd7939805862bc4c2e0dda4f03689905c3
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
