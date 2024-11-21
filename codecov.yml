@@ -2,7 +2,7 @@
 comment:
   layout: "reach, diff, flags, files" # PR 코멘트에 표시할 레이아웃 (기본 설정)
   behavior: default # PR 코멘트를 업데이트하거나, 새로 추가하는 방식
-  require_changes: true # 커버리지 변화가 없으면 코멘트를 생략
+  require_changes: false # 커버리지 변화가 없으면 코멘트를 생략
 
 coverage:
   status:
