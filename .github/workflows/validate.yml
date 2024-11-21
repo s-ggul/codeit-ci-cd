@@ -1,6 +1,10 @@
 name: Test and Build
 
 on:
+  workflow_call:
+    secrets:
+      CODECOV_TOKEN:
+        required: true
   pull_request: # 새로운 PR이 생성될 때 실행
     branches:
       - main # 필요한 경우 특정 브랜치에만 동작하도록 설정
