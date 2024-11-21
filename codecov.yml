@@ -1,13 +1,11 @@
 coverage:
-  precision: 2
-  round: down
-  range: "70...100"
   status:
-    project:
+    project: #add everything under here, more options at https://docs.codecov.com/docs/commit-status
       default:
-        target: auto
-        threshold: 2
-
+        # basic
+        target: auto #default
+        threshold: 0%
+        base: auto
 comment: #this is a top-level key
   layout: " diff, flags, files"
   behavior: default
