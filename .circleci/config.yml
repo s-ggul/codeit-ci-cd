@@ -1,8 +1,13 @@
 version: 2.1
 orbs:
+  # "cypress-io/cypress@3" installs the latest published
+  # version "s.x.y" of the orb. We recommend you then use
+  # the strict explicit version "cypress-io/cypress@3.x.y"
+  # to lock the version and prevent unexpected CI changes
+  # 추가적으로 CircleCI 대시보드에서 -> Organization -> Security 의 uncertified orbs도 설정 가능하게 해야 동작함..
   cypress: cypress-io/cypress@3
 workflows:
   build:
     jobs:
-      - cypress/run:
+      - cypress/run: # "run" job comes from "Cypress" orb
           start-command: "npm run start"
