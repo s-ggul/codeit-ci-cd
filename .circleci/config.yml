@@ -23,7 +23,11 @@ jobs:
           command: npm install
       - run:
           name: Run production build
-          command: npm run build && npm run start &
+          command: npm run build
+      - run:
+          name: Start Server Background
+          command: npm run start
+          background: true
       - run:
           name: Run Cypress tests
           command: npx cypress run
