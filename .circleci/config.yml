@@ -9,5 +9,20 @@ orbs:
 workflows:
   build:
     jobs:
-      - cypress/run: # "run" job comes from "Cypress" orb
-          start-command: "npm run start"
+      build_and_test:
+      docker:
+        - image: cypress/browsers:node18.17.0-chrome104-ff102
+      steps:
+        - checkout
+        - run:
+            name: Install dependencies
+            command: npm install
+        - run:
+            name: Run production build
+            command: npm run build && npm run start &
+        - run:
+            name: Wait for the server to be ready
+            command: npx wait-on http://localhost:3000
+        - cypress/run # Cypress orb로 테스트 실행
+      # - cypress/run: # "run" job comes from "Cypress" orb
+      #     start-command: "npm run start"
