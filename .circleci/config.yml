@@ -10,10 +10,7 @@ version: 2.1
 executors:
   node-executor:
     docker:
-      - image: cypress/browsers:node18.17.0-chrome104-ff102
-        auth:
-          username: $DOCKER_USERNAME
-          password: $DOCKER_PASSWORD
+      - image: cypress/browsers
     working_directory: ~/repo
 
 jobs:
