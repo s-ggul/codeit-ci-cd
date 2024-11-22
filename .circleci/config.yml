@@ -26,6 +26,7 @@ workflows:
   version: 2
   build:
     jobs:
-      - build_and_test # Cypress orb로 테스트 실행
-      # - cypress/run: # "run" job comes from "Cypress" orb
-      #     start-command: "npm run start"
+      - build_and_test
+# Cypress orb로 테스트 실행
+# - cypress/run: # "run" job comes from "Cypress" orb
+#     start-command: "npm run start"
